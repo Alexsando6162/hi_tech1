@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
  * @author alexsandro.lsouza1
  */
 public class TelaPrincipal extends javax.swing.JFrame {
+    public boolean habilitarBotoes = true;
 
     //public boolean habilitarBotoes = true;
     public TelaPrincipal() {
@@ -33,6 +34,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.setResizable(false);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
+    }
+    
+    public void alternarBotoes(){
+    
+        if (habilitarBotoes == true){
+        
+            btnCadastrarCliente.setEnabled(true);
+            btnCadastrarProduto.setEnabled(true);
+            btnEfetuarVendas.setEnabled(true);
+        }else{
+        
+            btnCadastrarCliente.setEnabled(false);
+            btnCadastrarProduto.setEnabled(false);
+            btnEfetuarVendas.setEnabled(false);
+        }
+        
+    }
+    
+    public void habilitar(){
+    
+        btnCadastrarCliente.setEnabled(true);
+        btnCadastrarProduto.setEnabled(true);
+        btnEfetuarVendas.setEnabled(true);
     }
 
     // qualquer coisa
@@ -145,9 +169,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jdcInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jdcFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -159,15 +183,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jdcFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jdcInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                            .addComponent(jLabel6)))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jdcInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jdcFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         tblClientes.setModel(new javax.swing.table.DefaultTableModel(
@@ -571,8 +598,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-//        this.habilitarBotoes = false;
-//        alternarBotoes();
+        this.habilitarBotoes = false;
+        alternarBotoes();
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
 
     private void btnEfetuarVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEfetuarVendasActionPerformed
@@ -594,8 +621,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-//        this.habilitarBotoes = false;
-//        alternarBotoes();
+        this.habilitarBotoes = false;
+        alternarBotoes();
     }//GEN-LAST:event_btnEfetuarVendasActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -608,7 +635,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         //this.lblImagemIN.setIcon(new ImageIcon(getClass().getResource("/Imagens/.png")));
         CadastroProduto frameInterno = new CadastroProduto();
+        
         frameInterno.setPreferredSize(new Dimension(840, 500));
+        frameInterno.tela = this;
         frameInterno.setVisible(true);
 
         jdpTelas.add(frameInterno);
@@ -621,8 +650,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-//        this.habilitarBotoes = false;
-//        alternarBotoes();
+        this.habilitarBotoes = false;
+        alternarBotoes();
     }//GEN-LAST:event_btnCadastrarProdutoActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed

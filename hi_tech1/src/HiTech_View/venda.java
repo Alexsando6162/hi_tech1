@@ -19,6 +19,7 @@ public class venda extends javax.swing.JInternalFrame {
      */
     
     private int Categoria;
+    TelaPrincipal tela;
     
     public venda() {
         initComponents();
